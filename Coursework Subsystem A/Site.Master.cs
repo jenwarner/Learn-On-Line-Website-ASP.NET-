@@ -103,13 +103,59 @@ namespace Coursework_Subsystem_A
                     if (y > 0)
                     {
                         // link to child manage page
-                        Response.Redirect("../Account/ChildManage.aspx");
+                        //Response.Redirect("../Account/ChildManage.aspx");
+
+                        // survey whether user is on specific page and redirect to correct path.
+                        
+                        if (string.Compare(Request.Url.LocalPath, "/Pricing.aspx") == 0 || string.Compare(Request.Url.LocalPath, "/") == 0)
+                        {
+                            Response.Redirect("/Account/ChildManage.aspx");
+                        }
+                        else if (string.Compare(Request.Url.LocalPath, "/Courses.aspx") == 0 || string.Compare(Request.Url.LocalPath, "/") == 0)
+                        {
+                            Response.Redirect("/Account/ChildManage.aspx");
+                        }
+                        else if (string.Compare(Request.Url.LocalPath, "/About.aspx") == 0 || string.Compare(Request.Url.LocalPath, "/") == 0)
+                        {
+                            Response.Redirect("/Account/ChildManage.aspx");
+                        }
+                        else if (string.Compare(Request.Url.LocalPath, "/Contact.aspx") == 0 || string.Compare(Request.Url.LocalPath, "/") == 0)
+                        {
+                            Response.Redirect("/Account/ChildManage.aspx");
+                        }
+                        else if (string.Compare(Request.Url.LocalPath, "/Default.aspx") == 0 || string.Compare(Request.Url.LocalPath, "/") == 0)
+                        {
+                            Response.Redirect("/Account/ChildManage.aspx");
+                        }
                     }
                 }
                 else if (x > 0)
                 {
                     // link to parent manage page
-                    Response.Redirect("../Account/ParentManage.aspx");
+                    //Response.Redirect("../Account/ParentManage.aspx");
+
+                    // survey whether user is on specific page and redirect to correct path.
+
+                    if (string.Compare(Request.Url.LocalPath, "/Pricing.aspx") == 0 || string.Compare(Request.Url.LocalPath, "/") == 0)
+                    {
+                        Response.Redirect("/Account/ParentManage.aspx");
+                    }
+                    else if (string.Compare(Request.Url.LocalPath, "/Courses.aspx") == 0 || string.Compare(Request.Url.LocalPath, "/") == 0)
+                    {
+                        Response.Redirect("/Account/ParentManage.aspx");
+                    }
+                    else if (string.Compare(Request.Url.LocalPath, "/About.aspx") == 0 || string.Compare(Request.Url.LocalPath, "/") == 0)
+                    {
+                        Response.Redirect("/Account/ParentManage.aspx");
+                    }
+                    else if (string.Compare(Request.Url.LocalPath, "/Contact.aspx") == 0 || string.Compare(Request.Url.LocalPath, "/") == 0)
+                    {
+                        Response.Redirect("/Account/ParentManage.aspx");
+                    }
+                    else if (string.Compare(Request.Url.LocalPath, "/Default.aspx") == 0 || string.Compare(Request.Url.LocalPath, "/") == 0)
+                    {
+                        Response.Redirect("/Account/ParentManage.aspx");
+                    }
                 }
             }
             catch (Exception ex)
