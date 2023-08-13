@@ -12,95 +12,95 @@ namespace Coursework_Subsystem_A.Account
         private static int cV2, childCount;
         private static long cardNumber;
         private static double currentTotal, currentSubTotal, usdExchange = 1.3, ausdExchange = 1.7, euroExchange = 1.2;
-        public static void setCV2(int c)
+        public static void SetCV2(int c)
         {
             cV2 = c;
         }
-        public static int getCV2()
+        public static int GetCV2()
         {
             return cV2;
         }
-        public static void setCardholderName(string c)
+        public static void SetCardholderName(string c)
         {
             cardholderName = c;
         }
-        public static string getCardholderName()
+        public static string GetCardholderName()
         {
             return cardholderName;
         }
-        public static void setStartDate(string s)
+        public static void SetStartDate(string s)
         {
             startDate = s;
         }
-        public static string getStartDate()
+        public static string GetStartDate()
         {
             return startDate;
         }
-        public static void setEndDate(string e)
+        public static void SetEndDate(string e)
         {
             endDate = e;
         }
-        public static string getEndDate()
+        public static string GetEndDate()
         {
             return endDate;
         }
-        public static void setCardType(string c)
+        public static void SetCardType(string c)
         {
             cardType = c;
         }
-        public static string getCardType()
+        public static string GetCardType()
         {
             return cardType;
         }
-        public static void setCardNumber(long c)
+        public static void SetCardNumber(long c)
         {
             cardNumber = c;
         }
-        public static long getCardNumber()
+        public static long GetCardNumber()
         {
             return cardNumber;
         }
-        public static void setCurrency(string c)
+        public static void SetCurrency(string c)
         {
             currency = c;
         }
-        public static string getCurrency()
+        public static string GetCurrency()
         {
             return currency;
         }
-        public static void setChildCount(int c)
+        public static void SetChildCount(int c)
         {
             childCount = c;
         }
-        public static int getChildCount()
+        public static int GetChildCount()
         {
             return childCount;
         }
-        public static void setCurrentTotal(double c)
+        public static void SetCurrentTotal(double c)
         {
             currentTotal = c;
         }
-        public static double getCurrentTotal()
+        public static double GetCurrentTotal()
         {
             return currentTotal;
         }
-        public static void setCurrentSubTotal(double c)
+        public static void SetCurrentSubTotal(double c)
         {
             currentSubTotal = c;
         }
-        public static double getCurrentSubTotal()
+        public static double GetCurrentSubTotal()
         {
             return currentSubTotal;
         }
-        public static double getUSDExchange()
+        public static double GetUSDExchange()
         {
             return usdExchange;
         }
-        public static double getEuroExchange()
+        public static double GetEuroExchange()
         {
             return euroExchange;
         }
-        public static double getAUSDExchange()
+        public static double GetAUSDExchange()
         {
             return ausdExchange;
         }

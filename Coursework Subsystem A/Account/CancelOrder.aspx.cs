@@ -12,16 +12,16 @@ namespace Coursework_Subsystem_A.Account
         protected void Page_Load(object sender, EventArgs e)
         {
             // sets payment variables to null values
-            PaymentInfoStorage.setCardholderName("");
-            PaymentInfoStorage.setCardType("");
-            PaymentInfoStorage.setCardNumber(0);
-            PaymentInfoStorage.setStartDate("");
-            PaymentInfoStorage.setEndDate("");
-            PaymentInfoStorage.setCV2(0);
-            PaymentInfoStorage.setChildCount(0);
-            PaymentInfoStorage.setCurrency("");
-            PaymentInfoStorage.setCurrentTotal(0);
-            PaymentInfoStorage.setCurrentSubTotal(0);
+            PaymentInfoStorage.SetCardholderName("");
+            PaymentInfoStorage.SetCardType("");
+            PaymentInfoStorage.SetCardNumber(0);
+            PaymentInfoStorage.SetStartDate("");
+            PaymentInfoStorage.SetEndDate("");
+            PaymentInfoStorage.SetCV2(0);
+            PaymentInfoStorage.SetChildCount(0);
+            PaymentInfoStorage.SetCurrency("");
+            PaymentInfoStorage.SetCurrentTotal(0);
+            PaymentInfoStorage.SetCurrentSubTotal(0);
 
         }
     }

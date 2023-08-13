@@ -10,7 +10,7 @@ namespace Coursework_Subsystem_A.Account
     {
         private static double mainPrice = 190.00; // default price per child for LoL services
 
-        public static void setVariable(double s)
+        public static void SetVariable(double s)
         {
             mainPrice = s;
         }
@@ -54,7 +54,7 @@ namespace Coursework_Subsystem_A.Account
         }
         public static double getSubtotal()
         {
-            double s = mainPrice * PaymentInfoStorage.getChildCount();
+            double s = mainPrice * PaymentInfoStorage.GetChildCount();
             return s;
         }
     }

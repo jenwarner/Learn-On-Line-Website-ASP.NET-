@@ -18,7 +18,7 @@ namespace Coursework_Subsystem_A.Account
         {
             try
             {
-                ChildPrice.setVariable(double.Parse(priceTB.Text));
+                ChildPrice.SetVariable(double.Parse(priceTB.Text));
             }
             catch (FormatException fe)
             {

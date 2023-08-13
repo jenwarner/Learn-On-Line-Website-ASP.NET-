@@ -12,9 +12,9 @@ namespace Coursework_Subsystem_A.Account
         protected void Page_Load(object sender, EventArgs e)
         {
             //displays amount paid
-            paidLbl.Text = PaymentInfoStorage.getCurrency() + PaymentInfoStorage.getCurrentTotal().ToString();
+            paidLbl.Text = PaymentInfoStorage.GetCurrency() + PaymentInfoStorage.GetCurrentTotal().ToString();
             // displays amount of VAT paid
-            vatLbl.Text = (PaymentInfoStorage.getCurrentTotal() - PaymentInfoStorage.getCurrentSubTotal()).ToString();
+            vatLbl.Text = (PaymentInfoStorage.GetCurrentTotal() - PaymentInfoStorage.GetCurrentSubTotal()).ToString();
         }
     }
 }

@@ -14,44 +14,44 @@ namespace Coursework_Subsystem_A.Account
         double VAT = 1.2; // 20% VAT
         protected void Page_Load(object sender, EventArgs e)
         {
-            cNLbl.Text = PaymentInfoStorage.getCardholderName();
-            cTLbl.Text = PaymentInfoStorage.getCardType();
-            cNoLbl.Text = PaymentInfoStorage.getCardNumber().ToString();
-            sDLbl.Text = PaymentInfoStorage.getStartDate();
-            eDLbl.Text = PaymentInfoStorage.getEndDate();
-            cV2Lbl.Text = PaymentInfoStorage.getCV2().ToString();
-            countLbl.Text = PaymentInfoStorage.getChildCount().ToString();
+            cNLbl.Text = PaymentInfoStorage.GetCardholderName();
+            cTLbl.Text = PaymentInfoStorage.GetCardType();
+            cNoLbl.Text = PaymentInfoStorage.GetCardNumber().ToString();
+            sDLbl.Text = PaymentInfoStorage.GetStartDate();
+            eDLbl.Text = PaymentInfoStorage.GetEndDate();
+            cV2Lbl.Text = PaymentInfoStorage.GetCV2().ToString();
+            countLbl.Text = PaymentInfoStorage.GetChildCount().ToString();
 
             if (PaymentInfoStorage.gbp)
             {
-                subTotalLbl.Text = PaymentInfoStorage.getCurrency() + PaymentInfoStorage.getCurrentSubTotal();
-                double total = (PaymentInfoStorage.getCurrentTotal() * VAT);
-                totalLbl.Text = PaymentInfoStorage.getCurrency() + (total).ToString();
-                PaymentInfoStorage.setCurrentTotal(total);
+                subTotalLbl.Text = PaymentInfoStorage.GetCurrency() + PaymentInfoStorage.GetCurrentSubTotal();
+                double total = (PaymentInfoStorage.GetCurrentTotal() * VAT);
+                totalLbl.Text = PaymentInfoStorage.GetCurrency() + (total).ToString();
+                PaymentInfoStorage.SetCurrentTotal(total);
             }
             else if (PaymentInfoStorage.euro)
             {
-                double subtotal = PaymentInfoStorage.getCurrentSubTotal();
-                subTotalLbl.Text = PaymentInfoStorage.getCurrency() + subtotal;
-                double total = (PaymentInfoStorage.getCurrentTotal()* VAT);
-                totalLbl.Text = PaymentInfoStorage.getCurrency() + (total).ToString();
-                PaymentInfoStorage.setCurrentTotal(total);
+                double subtotal = PaymentInfoStorage.GetCurrentSubTotal();
+                subTotalLbl.Text = PaymentInfoStorage.GetCurrency() + subtotal;
+                double total = (PaymentInfoStorage.GetCurrentTotal()* VAT);
+                totalLbl.Text = PaymentInfoStorage.GetCurrency() + (total).ToString();
+                PaymentInfoStorage.SetCurrentTotal(total);
             }
             else if (PaymentInfoStorage.usd)
             {
-                double subtotal = PaymentInfoStorage.getCurrentSubTotal();
-                subTotalLbl.Text = PaymentInfoStorage.getCurrency() + PaymentInfoStorage.getCurrentSubTotal();
-                double total = (PaymentInfoStorage.getCurrentTotal()* VAT);
-                totalLbl.Text = PaymentInfoStorage.getCurrency() + (total).ToString();
-                PaymentInfoStorage.setCurrentTotal(total);
+                double subtotal = PaymentInfoStorage.GetCurrentSubTotal();
+                subTotalLbl.Text = PaymentInfoStorage.GetCurrency() + PaymentInfoStorage.GetCurrentSubTotal();
+                double total = (PaymentInfoStorage.GetCurrentTotal()* VAT);
+                totalLbl.Text = PaymentInfoStorage.GetCurrency() + (total).ToString();
+                PaymentInfoStorage.SetCurrentTotal(total);
             }
             else if (PaymentInfoStorage.ausd)
             {
-                double subtotal = PaymentInfoStorage.getCurrentSubTotal();
-                subTotalLbl.Text = PaymentInfoStorage.getCurrency() + PaymentInfoStorage.getCurrentSubTotal();
-                double total = (PaymentInfoStorage.getCurrentTotal()* VAT);
-                totalLbl.Text = PaymentInfoStorage.getCurrency() + (total).ToString();
-                PaymentInfoStorage.setCurrentTotal(total);
+                double subtotal = PaymentInfoStorage.GetCurrentSubTotal();
+                subTotalLbl.Text = PaymentInfoStorage.GetCurrency() + PaymentInfoStorage.GetCurrentSubTotal();
+                double total = (PaymentInfoStorage.GetCurrentTotal()* VAT);
+                totalLbl.Text = PaymentInfoStorage.GetCurrency() + (total).ToString();
+                PaymentInfoStorage.SetCurrentTotal(total);
             }
 
             

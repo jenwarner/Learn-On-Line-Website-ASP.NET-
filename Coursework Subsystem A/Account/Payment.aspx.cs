@@ -58,7 +58,7 @@ namespace Coursework_Subsystem_A.Account
                     {
                         childCountLbl.Text = "You have " + count + " child(ren)."; regChildBtn.Visible = false;
                     }
-                    PaymentInfoStorage.setChildCount(count); // stores the number of children a parent has
+                    PaymentInfoStorage.SetChildCount(count); // stores the number of children a parent has
                     to = ChildPrice.getVariable() * count;
                     
                     if (gBPRB.Checked)
@@ -67,17 +67,17 @@ namespace Coursework_Subsystem_A.Account
                     }
                     else if (eRB.Checked)
                     {
-                        double euro = to * PaymentInfoStorage.getEuroExchange(); // sets exchange rate
+                        double euro = to * PaymentInfoStorage.GetEuroExchange(); // sets exchange rate
                         totalLbl.Text = "€" + euro;
                     }
                     else if (uRB.Checked)
                     {
-                        double usd = to * PaymentInfoStorage.getUSDExchange();
+                        double usd = to * PaymentInfoStorage.GetUSDExchange();
                         totalLbl.Text = "$" + usd;
                     }
                     else if (ausRB.Checked)
                     {
-                        double ausd = to * PaymentInfoStorage.getAUSDExchange();
+                        double ausd = to * PaymentInfoStorage.GetAUSDExchange();
                         totalLbl.Text = "$" + ausd;
                     }
                     // get cardholder info from db
@@ -201,46 +201,46 @@ namespace Coursework_Subsystem_A.Account
             if (gBPRB.Checked) // gbp radio button
             {
                 double gb = to;
-                PaymentInfoStorage.setCurrency("£"); // set currency symbol
+                PaymentInfoStorage.SetCurrency("£"); // set currency symbol
                 PaymentInfoStorage.gbp = true;
-                PaymentInfoStorage.setCurrentTotal(gb); // set total without any conversion
-                PaymentInfoStorage.setCurrentSubTotal(gb); // set subtotal without any conversion
+                PaymentInfoStorage.SetCurrentTotal(gb); // set total without any conversion
+                PaymentInfoStorage.SetCurrentSubTotal(gb); // set subtotal without any conversion
             }
             else if (eRB.Checked) // euro radio button
             {
-                PaymentInfoStorage.setCurrency("€");
+                PaymentInfoStorage.SetCurrency("€");
                 PaymentInfoStorage.euro = true;
-                double euro = to * PaymentInfoStorage.getEuroExchange();
-                PaymentInfoStorage.setCurrentTotal(euro);
-                PaymentInfoStorage.setCurrentSubTotal(euro);
+                double euro = to * PaymentInfoStorage.GetEuroExchange();
+                PaymentInfoStorage.SetCurrentTotal(euro);
+                PaymentInfoStorage.SetCurrentSubTotal(euro);
             }
             else if (uRB.Checked) // usd radio button
             {
-                PaymentInfoStorage.setCurrency("$");
+                PaymentInfoStorage.SetCurrency("$");
                 PaymentInfoStorage.usd = true;
-                double usd = to * PaymentInfoStorage.getUSDExchange();
-                PaymentInfoStorage.setCurrentTotal(usd);
-                PaymentInfoStorage.setCurrentSubTotal(usd);
+                double usd = to * PaymentInfoStorage.GetUSDExchange();
+                PaymentInfoStorage.SetCurrentTotal(usd);
+                PaymentInfoStorage.SetCurrentSubTotal(usd);
             }
             else if (ausRB.Checked) // ausd radio button
             {
-                PaymentInfoStorage.setCurrency("$");
+                PaymentInfoStorage.SetCurrency("$");
                 PaymentInfoStorage.ausd = true;
-                double ausd = to * PaymentInfoStorage.getAUSDExchange();
-                PaymentInfoStorage.setCurrentTotal(ausd);
-                PaymentInfoStorage.setCurrentSubTotal(ausd);
+                double ausd = to * PaymentInfoStorage.GetAUSDExchange();
+                PaymentInfoStorage.SetCurrentTotal(ausd);
+                PaymentInfoStorage.SetCurrentSubTotal(ausd);
             }
             // store payment details
-            PaymentInfoStorage.setCardholderName(cNLbl.Text);
-            PaymentInfoStorage.setCardType(cardDDL.SelectedItem.Text);
-            PaymentInfoStorage.setCardNumber(long.Parse(cNoTB.Text));
-            PaymentInfoStorage.setStartDate(startDay.SelectedItem.Text + "/" + startMonth.SelectedItem.Text + "/" + sYear.SelectedItem.Text);
-            PaymentInfoStorage.setEndDate(endDay.SelectedItem.Text + "/" + endMonth.SelectedItem.Text + "/" + endYear.SelectedItem.Text);
+            PaymentInfoStorage.SetCardholderName(cNLbl.Text);
+            PaymentInfoStorage.SetCardType(cardDDL.SelectedItem.Text);
+            PaymentInfoStorage.SetCardNumber(long.Parse(cNoTB.Text));
+            PaymentInfoStorage.SetStartDate(startDay.SelectedItem.Text + "/" + startMonth.SelectedItem.Text + "/" + sYear.SelectedItem.Text);
+            PaymentInfoStorage.SetEndDate(endDay.SelectedItem.Text + "/" + endMonth.SelectedItem.Text + "/" + endYear.SelectedItem.Text);
 
             try
             {
                 
-                PaymentInfoStorage.setCV2(int.Parse(cV2TB.Text));
+                PaymentInfoStorage.SetCV2(int.Parse(cV2TB.Text));
                 
             }
             catch (FormatException ex)
