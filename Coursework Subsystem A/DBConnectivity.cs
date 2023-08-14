@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Data;
 using System.Data.OleDb;
+using System.IO;
 
 namespace Coursework_Subsystem_A
 {
@@ -15,7 +16,8 @@ namespace Coursework_Subsystem_A
             string connString;
             //  change to your connection string in the following line
             // change provider for each computer
-            connString = @"Provider=Microsoft.JET.OLEDB.4.0;Data Source=C:\Users\jenz_\Documents\Uni Projects\Coursework Subsystem A\LolUsers.mdb";
+            //connString = @"Provider=Microsoft.JET.OLEDB.4.0;Data Source=C:\Users\jenz_\Documents\Uni Projects\Coursework Subsystem A\LolUsers.mdb";
+            connString = @"Provider=Microsoft.JET.OLEDB.4.0; Data Source=LolUsers.mdb; Persist Security Info=False;";
             return new OleDbConnection(connString);
         }
         // find parent id from username session

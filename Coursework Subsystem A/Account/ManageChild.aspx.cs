@@ -37,7 +37,7 @@ namespace Coursework_Subsystem_A.Account
                     row.Cells.Add(cell3);
 
                     Table1.Rows.Add(row);
-                    TextBox1.Focus();
+                    childIDEraseTB.Focus();
                 }
             }
             else
@@ -62,7 +62,7 @@ namespace Coursework_Subsystem_A.Account
                     row.Cells.Add(cell3);
 
                     Table1.Rows.Add(row);
-                    TextBox1.Focus();
+                    childIDEraseTB.Focus();
                 }
                 OleDbConnection myConnection = DBConnectivity.GetConn();
                 string myQuery = "SELECT count(*) FROM Child WHERE userName = '" + uTB.Text + "'";
@@ -117,13 +117,13 @@ namespace Coursework_Subsystem_A.Account
 
             }
         }
-        protected void deleteBtn_Click(object sender, EventArgs e)
+        protected void DeleteBtn_Click(object sender, EventArgs e)
         {
             try
             {
-                DBConnectivity.DeleteChild(int.Parse(TextBox1.Text));
-                uLbl.Text = TextBox1.Text;
-                uLbl.Text = "record sucessfully deleted";
+                DBConnectivity.DeleteChild(int.Parse(childIDEraseTB.Text));
+                uLbl.Text = childIDEraseTB.Text;
+                uLbl.Text = "record sucessfully deleted.";
             }
             catch (FormatException ex)
             {
@@ -131,7 +131,7 @@ namespace Coursework_Subsystem_A.Account
             }
         }
 
-        protected void submitBtn_Click(object sender, EventArgs e)
+        protected void SubmitBtn_Click(object sender, EventArgs e)
         {
             string dob = birthDay.SelectedItem.Text + "/" + birthMonth.SelectedItem.Text + "/" + birthYear.SelectedItem.Text; // stores selected dob in string
             if (x == 0)
@@ -147,7 +147,7 @@ namespace Coursework_Subsystem_A.Account
 
                     int y = int.Parse(myParentCommand.ExecuteScalar().ToString());
                     uLbl.Text = y.ToString();
-                    // intserts data into the child table from the various textboxes
+                    // inserts data into the child table from the various textboxes
                     string myQuery = "INSERT INTO Child ([firstName],[surname],[dob],[sex],[userName],[cID],[password]) VALUES (@fName,@lName,@dob,@sex,@userName,@cID,@password)";
                     OleDbCommand myCommand = new OleDbCommand(myQuery, myConnection);
                     myCommand.Parameters.AddWithValue("@fName", fNTB.Text);
@@ -170,7 +170,7 @@ namespace Coursework_Subsystem_A.Account
                     myConnection.Close();
                 }
                 
-                uLbl.Text = fNTB.Text + " " + lNTB.Text + " has been added sucessfully";
+                uLbl.Text = fNTB.Text + " " + lNTB.Text + " has been added sucessfully.";
             }
         }
     }

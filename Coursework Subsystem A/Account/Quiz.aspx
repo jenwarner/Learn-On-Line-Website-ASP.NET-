@@ -13,6 +13,6 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
     <p>~Under Construction~</p><br />
-    <p>Please check back later</p>
+    <p>Please check back later.</p>
 
 </asp:Content>

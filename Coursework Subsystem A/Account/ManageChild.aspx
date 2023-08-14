@@ -93,7 +93,7 @@
             <td class="auto-style10">&nbsp;</td>
             <td class="auto-style3">
                 Enter ID to erase&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:TextBox ID="TextBox1" runat="server" style="text-align: left" Width="99px"></asp:TextBox>
+                <asp:TextBox ID="childIDEraseTB" runat="server" style="text-align: left" Width="99px"></asp:TextBox>
             </td>
             <td>
                 &nbsp;</td>
@@ -102,7 +102,7 @@
             <td class="auto-style10">&nbsp;</td>
             <td class="auto-style3">
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:Button ID="deleteBtn" runat="server" OnClick="deleteBtn_Click" Text="Delete" Width="100px" />
+                <asp:Button ID="DeleteBtn" runat="server" OnClick="DeleteBtn_Click" Text="Delete" Width="100px" />
             </td>
             <td>
                 &nbsp;</td>
@@ -222,7 +222,7 @@
         <tr>
             <td class="auto-style4">&nbsp;</td>
             <td class="auto-style9">
-            <asp:Button ID="submitBtn" runat="server" Text="Submit" Width="106px" OnClick="submitBtn_Click"/>
+            <asp:Button ID="SubmitBtn" runat="server" Text="Submit" Width="106px" OnClick="SubmitBtn_Click"/>
             <input id="Reset1" type="reset" value="reset" /></td>
             <td>&nbsp;</td>
         </tr>
