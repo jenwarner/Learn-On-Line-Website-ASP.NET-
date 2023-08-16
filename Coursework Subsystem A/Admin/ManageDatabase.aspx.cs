@@ -171,7 +171,7 @@ namespace Coursework_Subsystem_A.Admin
             try
             {
                 // deletes parent, membership, address and all children
-                DBConnectivity.DeleteMembershipByParentID(int.Parse(parentDDL.SelectedValue));
+                DBConnectivity.DeleteSubscriptionByParentID(int.Parse(parentDDL.SelectedValue));
                 DBConnectivity.DeleteAddress(int.Parse(parentDDL.SelectedValue));
                 DBConnectivity.DeleteChild(int.Parse(parentDDL.SelectedValue));
                 DBConnectivity.DeleteParent(int.Parse(parentDDL.SelectedValue));

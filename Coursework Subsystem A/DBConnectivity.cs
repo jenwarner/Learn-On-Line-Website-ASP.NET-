@@ -21,7 +21,7 @@ namespace Coursework_Subsystem_A
             return new OleDbConnection(connString);
         }
         // find parent id from username session
-        public static string FindParentNameWIthUsername(string uN)
+        public static string FindParentNameWithUsername(string uN)
         {
             string name;
             OleDbConnection myConnection = GetConnection();
@@ -192,7 +192,7 @@ namespace Coursework_Subsystem_A
             }
         }
 
-        public static void DeleteMembershipByParentID(int pID)
+        public static void DeleteSubscriptionByParentID(int pID)
         {
             OleDbConnection myConnection = GetConnection();
             string myQuery = "DELETE * FROM Membership WHERE pID =" + pID;
@@ -202,6 +202,96 @@ namespace Coursework_Subsystem_A
             {
                 myConnection.Open();
                 myCommand.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception in DBHandler", ex);
+            }
+            finally
+            {
+                myConnection.Close();
+            }
+        }
+        public static int ReturnActiveMembership()
+        {
+            int activeMembership = 0;
+            OleDbConnection myConnection = GetConnection();
+            try
+            {
+                myConnection.Open();
+                string myQuery = "SELECT Active FROM Membership WHERE pID = @pID";
+                OleDbCommand myCommand = new OleDbCommand(myQuery, myConnection);
+                myCommand.Parameters.AddWithValue("@pID", ReturnIDFromSessionUsername());
+                activeMembership = int.Parse(myCommand.ExecuteScalar().ToString()); // either 1 or 0
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                myConnection.Close();
+            }
+
+            return activeMembership;
+        }
+
+        public static int ReturnIDFromSessionUsername()
+        {
+            int userID = 0;
+            OleDbConnection myConnection = GetConnection();
+            string myQuery = "SELECT Parent.ID FROM Parent WHERE userName = @uName";
+            OleDbCommand myCommand = new OleDbCommand(myQuery, myConnection);
+            myCommand.Parameters.AddWithValue("@uName", Person.SessionUsername); // selects parent id from username stored in Session
+
+            try
+            {
+                myConnection.Open();
+                userID = int.Parse(myCommand.ExecuteScalar().ToString());
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                myConnection.Close();
+            }
+
+            return userID;
+        }
+
+        public static string ReturnEndDateForActiveSubscription()
+        {
+            string ed = "N/A";
+            OleDbConnection myConnection = GetConnection();
+            try
+            {
+                myConnection.Open();
+                string myQuery = "SELECT EndDate FROM Membership WHERE pID = @pID"; // returns end date from membership table
+                OleDbCommand myCommand = new OleDbCommand(myQuery, myConnection);
+                myCommand.Parameters.AddWithValue("@pID", ReturnIDFromSessionUsername());
+                ed = myCommand.ExecuteScalar().ToString();
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                myConnection.Close();
+            }
+            return ed;
+        }
+        public static void AddSubscriptionByParentID()
+        {
+            OleDbConnection myConnection = GetConnection();
+            try
+            {
+                myConnection.Open();
+
+                
             }
             catch (Exception ex)
             {

@@ -48,6 +48,8 @@ namespace Coursework_Subsystem_A.Account
                         {
                             Session["loginUN"] = uNTB.Text; // sets text written in the username textbox into a session
                             uLbl.Text = "Password is correct!";
+                            // Store user's username for setting Membership information
+                            Person.SessionUsername = Session["loginUN"].ToString();
                             Response.Redirect("ChildManage.aspx"); // redirects to another page
                         }
                         else
@@ -92,6 +94,8 @@ namespace Coursework_Subsystem_A.Account
                         {
                             Session["loginUN"] = uNTB.Text;
                             uLbl.Text = "Password is correct!";
+                            // Store user's username for setting Membership information
+                            Person.SessionUsername = Session["loginUN"].ToString();
                             Response.Redirect("ParentManage.aspx");
                         }
                         else

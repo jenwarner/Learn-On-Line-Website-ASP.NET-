@@ -15,26 +15,19 @@ namespace Coursework_Subsystem_A.Account
         Int32 count = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
+            //// TODO: remove all database connectivity from this class
+            
             OleDbConnection myConnection = DBConnectivity.GetConn(); // returns OleDb connection string
-            string myQuery = "SELECT Parent.ID FROM Parent WHERE userName = @uName";
-            OleDbCommand myCommand = new OleDbCommand(myQuery, myConnection);
-            myCommand.Parameters.AddWithValue("@uName", Session["loginUN"].ToString()); // selects parent id from username stored in Session
-
+            //get active membership info
+            int y = DBConnectivity.ReturnActiveMembership();
             try
             {
                 myConnection.Open();
-                int x = int.Parse(myCommand.ExecuteScalar().ToString());
-                string myQuery2 = "SELECT Active FROM Membership WHERE pID = @pID";
-                OleDbCommand myCommand2 = new OleDbCommand(myQuery2, myConnection);
-                myCommand2.Parameters.AddWithValue("@pID", x);
-                int y = int.Parse(myCommand2.ExecuteScalar().ToString()); // either 1 or 0
                 if (y == 1)
                 {
-                    string myQuery3 = "SELECT EndDate FROM Membership WHERE pID = @pID"; // returns end date from membership table
-                    OleDbCommand myCommand3 = new OleDbCommand(myQuery3, myConnection);
-                    myCommand3.Parameters.AddWithValue("@pID", x);
-                    string ed = myCommand3.ExecuteScalar().ToString();
-                    outLbl.Text = "You currently have an active subscription." + " End Date: " + ed; // user with active subscription will not be able to proceed with payment.
+                    string endDate = DBConnectivity.ReturnEndDateForActiveSubscription();
+
+                    outLbl.Text = "You currently have an active subscription." + " End Date: " + endDate; // user with active subscription will not be able to proceed with payment.
                     outLbl.Text += ". You will receive a renewal request nearer the end date.";
                     // hides labels and textboxes
                     cNLbl0.Visible = false; eRB.Visible = false; Table1.Visible = false; cV2TB.Visible = false;
@@ -47,7 +40,7 @@ namespace Coursework_Subsystem_A.Account
                 else // active == 0
                 {
                     outLbl.Text = "You currently do not have an active subscription. Please fill in the form below to purchase our services.";
-                    string myQuery4 = "SELECT count(*) FROM CHILD WHERE cID =" + x;
+                    string myQuery4 = "SELECT count(*) FROM CHILD WHERE cID =" + DBConnectivity.ReturnIDFromSessionUsername();
                     OleDbCommand myCommand4 = new OleDbCommand(myQuery4, myConnection);
                     count = int.Parse(myCommand4.ExecuteScalar().ToString()); // return child count
                     if (count == 0)
@@ -81,7 +74,7 @@ namespace Coursework_Subsystem_A.Account
                         totalLbl.Text = "$" + ausd;
                     }
                     // get cardholder info from db
-                    string myQuery5 = "SELECT firstName + ' ' + surname as parentName FROM Parent WHERE ID = " + x;
+                    string myQuery5 = "SELECT firstName + ' ' + surname as parentName FROM Parent WHERE ID = " + DBConnectivity.ReturnIDFromSessionUsername();
                     OleDbCommand myCommand5 = new OleDbCommand(myQuery5, myConnection);
                     string cN = myCommand5.ExecuteScalar().ToString();
                     cNLbl.Text = cN;

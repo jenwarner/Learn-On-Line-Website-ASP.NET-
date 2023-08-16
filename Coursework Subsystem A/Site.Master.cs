@@ -156,6 +156,10 @@ namespace Coursework_Subsystem_A
                     {
                         Response.Redirect("/Account/ParentManage.aspx");
                     }
+                    else if (string.Compare(Request.Url.LocalPath, "Payment.aspx") == 0 || string.Compare(Request.Url.LocalPath, "/") == 0)
+                    {
+                        Response.Redirect("ParentManage.aspx");
+                    }
                 }
             }
             catch (Exception ex)

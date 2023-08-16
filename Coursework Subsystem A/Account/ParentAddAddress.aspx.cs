@@ -14,7 +14,7 @@ namespace Coursework_Subsystem_A.Account
         {
             uLbl.Text = "";
             // find parent full name with username
-            nameLbl.Text = DBConnectivity.FindParentNameWIthUsername(Session["loginUN"].ToString());
+            nameLbl.Text = DBConnectivity.FindParentNameWithUsername(Session["loginUN"].ToString());
         }
 
         protected void submitBtn_Click(object sender, EventArgs e)

@@ -7,7 +7,7 @@ namespace Coursework_Subsystem_A
 {
     public class Parent : Person
     {
-        string parentName, postcode, email;
+        string parentName, postcode, email, username;
         string activeMembership;
         long telNo;
         
@@ -35,6 +35,11 @@ namespace Coursework_Subsystem_A
             set { email = value; }
         }
 
+        /*public string Username
+        {
+            get { return username; }
+            set { username = value; }
+        }*/
         public string MembershipAdded
         {
             get { return activeMembership; }
@@ -75,7 +80,7 @@ namespace Coursework_Subsystem_A
             email = e;
             Username = u;
             Password = p;
-            postcode = p;
+            postcode = pC;
             activeMembership = aM;
         }
 

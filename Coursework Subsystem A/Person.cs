@@ -9,6 +9,7 @@ namespace Coursework_Subsystem_A
     {
         string firstName, surname, username, password;
         int id;
+        static string sessionUsername;
         // get and set variables
         public int ID
         {
@@ -34,6 +35,12 @@ namespace Coursework_Subsystem_A
         {
             get { return password; }
             set { password = value; }
+        }
+
+        public static string SessionUsername
+        {
+            get { return sessionUsername; }
+            set { sessionUsername = value; }
         }
     }
 }
