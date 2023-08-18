@@ -284,6 +284,30 @@ namespace Coursework_Subsystem_A
             }
             return ed;
         }
+
+        public static int ReturnChildCount()
+        {
+            int count = 0;
+            OleDbConnection myConnection = GetConnection();
+            try
+            {
+                myConnection.Open();
+                string myQuery = "SELECT count(*) FROM CHILD WHERE cID =" + ReturnIDFromSessionUsername();
+                OleDbCommand myCommand = new OleDbCommand(myQuery, myConnection);
+                count = int.Parse(myCommand.ExecuteScalar().ToString()); // return child count
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                myConnection.Close();
+            }
+
+            return count;
+            
+        }
         public static void AddSubscriptionByParentID()
         {
             OleDbConnection myConnection = GetConnection();

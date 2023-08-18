@@ -40,9 +40,11 @@ namespace Coursework_Subsystem_A.Account
                 else // active == 0
                 {
                     outLbl.Text = "You currently do not have an active subscription. Please fill in the form below to purchase our services.";
-                    string myQuery4 = "SELECT count(*) FROM CHILD WHERE cID =" + DBConnectivity.ReturnIDFromSessionUsername();
-                    OleDbCommand myCommand4 = new OleDbCommand(myQuery4, myConnection);
-                    count = int.Parse(myCommand4.ExecuteScalar().ToString()); // return child count
+
+                    //string myQuery4 = "SELECT count(*) FROM CHILD WHERE cID =" + DBConnectivity.ReturnIDFromSessionUsername();
+                    //OleDbCommand myCommand4 = new OleDbCommand(myQuery4, myConnection);
+                    //count = int.Parse(myCommand4.ExecuteScalar().ToString()); // return child count
+                    count = DBConnectivity.ReturnChildCount();
                     if (count == 0)
                     {
                         childCountLbl.Text = "You have " + count + " child(ren). Please register a child here: "; regChildBtn.Visible = true;
