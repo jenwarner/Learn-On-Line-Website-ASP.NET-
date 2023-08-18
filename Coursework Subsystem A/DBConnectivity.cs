@@ -308,6 +308,27 @@ namespace Coursework_Subsystem_A
             return count;
             
         }
+
+        public static string ReturnParentName()
+        {
+            string parentName = "";
+            OleDbConnection myConnection = GetConnection();
+            try
+            { 
+                string myQuery = "SELECT firstName + ' ' + surname as parentName FROM Parent WHERE ID = " + ReturnIDFromSessionUsername();
+                OleDbCommand myCommand = new OleDbCommand(myQuery, myConnection);
+                parentName = myCommand.ExecuteScalar().ToString();
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                myConnection.Close();
+            }
+            return parentName;
+        }
         public static void AddSubscriptionByParentID()
         {
             OleDbConnection myConnection = GetConnection();
@@ -498,12 +519,13 @@ namespace Coursework_Subsystem_A
         // load addresses with parent id
         public static List<Address> LoadAddressByParentForRegister(string uN)
         {
+            int pID = 0;
             List<Address> address = new List<Address>();
             OleDbConnection myConnection = GetConnection();
 
-            string myQuery0 = "SELECT Parent.ID FROM Parent WHERE userName = @uName";
+            /*string myQuery0 = "SELECT Parent.ID FROM Parent WHERE userName = @uName";
             OleDbCommand myCommand0 = new OleDbCommand(myQuery0, myConnection);
-            myCommand0.Parameters.AddWithValue("@uName", uN);
+            myCommand0.Parameters.AddWithValue("@uName", uN);*/
 
             
 
@@ -513,9 +535,11 @@ namespace Coursework_Subsystem_A
             {
                 myConnection.Open();
                 // get parent id
-                int x = int.Parse(myCommand0.ExecuteScalar().ToString());
+                //int x = int.Parse(myCommand0.ExecuteScalar().ToString());
+                pID = ReturnIDFromSessionUsername();
+                //pID = 8;
                 // get address with parent id
-                string myQuery = "SELECT * FROM Address WHERE pID = " + x;
+                string myQuery = "SELECT * FROM Address WHERE pID = " + pID;
                 OleDbCommand myCommand = new OleDbCommand(myQuery, myConnection);
 
                 OleDbDataReader myReader = myCommand.ExecuteReader();

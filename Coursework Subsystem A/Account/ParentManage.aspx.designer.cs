@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Coursework_Subsystem_A.Account {
-    
-    
-    public partial class ParentManage {
-        
+namespace Coursework_Subsystem_A.Account
+{
+
+
+    public partial class ParentManage
+    {
+
         /// <summary>
         /// greetingLbl control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace Coursework_Subsystem_A.Account {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label greetingLbl;
-        
+
         /// <summary>
         /// dateLbl control.
         /// </summary>
@@ -29,7 +31,16 @@ namespace Coursework_Subsystem_A.Account {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label dateLbl;
-        
+
+        /// <summary>
+        /// testLbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label testLbl;
+
         /// <summary>
         /// pManageAccountBtn control.
         /// </summary>
@@ -38,7 +49,7 @@ namespace Coursework_Subsystem_A.Account {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button pManageAccountBtn;
-        
+
         /// <summary>
         /// mCBtn control.
         /// </summary>
@@ -47,7 +58,7 @@ namespace Coursework_Subsystem_A.Account {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button mCBtn;
-        
+
         /// <summary>
         /// vCBtn control.
         /// </summary>
@@ -56,7 +67,7 @@ namespace Coursework_Subsystem_A.Account {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button vCBtn;
-        
+
         /// <summary>
         /// vCLbl control.
         /// </summary>
@@ -65,7 +76,7 @@ namespace Coursework_Subsystem_A.Account {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label vCLbl;
-        
+
         /// <summary>
         /// paymentBtn control.
         /// </summary>

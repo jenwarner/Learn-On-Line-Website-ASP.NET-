@@ -30,6 +30,8 @@ namespace Coursework_Subsystem_A.Account
                     greetingLbl.Text = "Good Evening, " + Session["loginUN"].ToString() + ".";
                     dateLbl.Text = Convert.ToString(DateTime.Now);
                 }
+
+                testLbl.Text = DBConnectivity.ReturnIDFromSessionUsername().ToString();
             }
         }
 

@@ -13,16 +13,18 @@ namespace Coursework_Subsystem_A.Account
     {
         double to = 0;
         Int32 count = 0;
+        string parentName = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             //// TODO: remove all database connectivity from this class
             
             OleDbConnection myConnection = DBConnectivity.GetConn(); // returns OleDb connection string
-            //get active membership info
-            int y = DBConnectivity.ReturnActiveMembership();
+            
             try
             {
                 myConnection.Open();
+                //get active membership info
+                int y = DBConnectivity.ReturnActiveMembership();
                 if (y == 1)
                 {
                     string endDate = DBConnectivity.ReturnEndDateForActiveSubscription();
@@ -76,12 +78,12 @@ namespace Coursework_Subsystem_A.Account
                         totalLbl.Text = "$" + ausd;
                     }
                     // get cardholder info from db
-                    string myQuery5 = "SELECT firstName + ' ' + surname as parentName FROM Parent WHERE ID = " + DBConnectivity.ReturnIDFromSessionUsername();
-                    OleDbCommand myCommand5 = new OleDbCommand(myQuery5, myConnection);
-                    string cN = myCommand5.ExecuteScalar().ToString();
-                    cNLbl.Text = cN;
+                    //string myQuery5 = "SELECT firstName + ' ' + surname as parentName FROM Parent WHERE ID = " + DBConnectivity.ReturnIDFromSessionUsername();
+                    //OleDbCommand myCommand5 = new OleDbCommand(myQuery5, myConnection);
+                    //string cN = myCommand5.ExecuteScalar().ToString();
+                    cNLbl.Text = parentName;
                     // get address from db
-                    List<Address> address = DBConnectivity.LoadAddressByParentForRegister(Session["loginUN"].ToString());
+                    List<Address> address = DBConnectivity.LoadAddressByParentForRegister(Person.SessionUsername);
                     // displays parents address in table
                     foreach (var a in address)
                     {
